@@ -7,8 +7,8 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
       <div>
         <form onSubmit={handleFirstComponent}>
           <div className="mb-20">
-            <div className="flex mb-4 justify-between space-x-4">
-              <div className="flex flex-col w-1/2">
+            <div className="flex mb-4 justify-between">
+              <div className="flex flex-col w-1/2 pr-4">
                 <label htmlFor="firstName" className="text-gray-700 mb-2">
                   First Name
                 </label> 
@@ -37,8 +37,8 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
               className="p-3 border-[0.5px] border-gray-500 rounded-lg text-gray-950 font-semibold"
               onChange={(e) => setData({...data, email: e.target.value})}/>
             </div>
-            <div className="flex mb-4 justify-between space-x-4">
-              <div className="flex flex-col w-1/2">
+            <div className="flex mb-4 justify-between">
+              <div className="flex flex-col w-1/2 pr-4">
                 <label htmlFor="country" className="text-gray-700 mb-2">
                   Country
                 </label>
