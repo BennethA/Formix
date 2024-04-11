@@ -21,7 +21,7 @@ function App() {
   const [currentComponent, setCurrentComponent] = useState(1)
 
   const handleNextStep = () => {
-    setCurrentComponent(currentComponent + 1)
+    currentComponent === 4 ? "" : setCurrentComponent(currentComponent + 1)
   }
 
   const handlePrevStep = () => {
@@ -74,7 +74,7 @@ function App() {
                 if(currentComponent === 1) {
                   handleNextStep();
                   handleFirstComponent();
-                } else if(currentComponent === 2 || currentComponent === 3) {
+                } else {
                   handleNextStep()
                 }
               }} className="font-bold bg-black text-white p-2 px-5 hover:bg-gray-500 rounded-2xl">Next step</button>
