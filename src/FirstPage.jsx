@@ -7,8 +7,8 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
       <div>
         <form onSubmit={handleFirstComponent}>
           <div className="mb-20">
-            <div className="flex mb-4 justify-between space-x-4">
-              <div className="flex flex-col w-1/2 pr-4">
+            <div className="flex mb-4 justify-between">
+              <div className="flex flex-col w-[49%]">
                 <label htmlFor="firstName" className="text-[#818181] mb-2 text-[18px] font-semibold">
                   First Name
                 </label> 
@@ -17,7 +17,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, firstName: e.target.value})}/>
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-[49%]">
                 <label htmlFor="surname" className="text-[#818181] mb-2 text-[18px] font-semibold">
                   Surname
                 </label>
@@ -37,8 +37,8 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
               className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
               onChange={(e) => setData({...data, email: e.target.value})}/>
             </div>
-            <div className="flex mb-4 justify-between space-x-4">
-              <div className="flex flex-col w-1/2 pr-4">
+            <div className="flex mb-4 justify-between">
+              <div className="flex flex-col w-[49%]">
                 <label htmlFor="country" className="text-[#818181] mb-2 text-[18px] font-semibold">
                   Country
                 </label>
@@ -48,7 +48,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, country: e.target.value})}/>
               </div>
-              <div className="flex flex-col w-1/2">
+              <div className="flex flex-col w-[49%]">
                 <label htmlFor="region" className="text-[#818181] mb-2 text-[18px] font-semibold">
                   Region
                 </label>

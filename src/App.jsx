@@ -54,7 +54,7 @@ function App() {
             </div>
           </div>
         </div>
-        <div className='py-[60px] px-[40px] pr-[65px] w-full md:w-[61%] min-h-svh'>
+        <div className='py-[60px] md:px-[40px] md:pr-[65px] px-[40px] md:w-[61%] min-h-svh'>
           <div className='flex justify-between mt-10'>
             {
               steps.map((step, index) => <>
@@ -69,7 +69,7 @@ function App() {
           {currentComponent === 2 && <SecondPage/>}
           {currentComponent === 3 && <ThirdPage/>}
           {currentComponent === 4 && <FourthPage/>}
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-col md:flex-row flex-wrap ">
             {
               currentComponent > 1 
               ? <button className=" font-semibold p-2 hover:bg-gray-500 hover:text-white text-xl font-sans text-gray-700 py-3 px-10 rounded-3xl" onClick={handlePrevStep}>Previous step</button>
