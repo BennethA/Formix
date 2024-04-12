@@ -14,7 +14,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 </label> 
                 <input type="text" 
                 placeholder="firstname"
-                className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+                className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, firstName: e.target.value})}/>
               </div>
               <div className="flex flex-col w-[49%]">
@@ -23,7 +23,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 </label>
                 <input 
                 type="text" 
-                placeholder="surname" className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+                placeholder="surname" className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, surname: e.target.value})}/>
               </div>
             </div>
@@ -34,7 +34,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
               <input 
               type="email" 
               placeholder="email" 
-              className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+              className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
               onChange={(e) => setData({...data, email: e.target.value})}/>
             </div>
             <div className="flex mb-4 justify-between">
@@ -45,7 +45,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 <input 
                 type="text" 
                 placeholder="country" 
-                className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+                className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, country: e.target.value})}/>
               </div>
               <div className="flex flex-col w-[49%]">
@@ -55,7 +55,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
                 <input 
                 type="text" 
                 placeholder="region" 
-                className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+                className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
                 onChange={(e) => setData({...data, region: e.target.value})}/>
               </div>
             </div>
@@ -66,7 +66,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
               <input 
               type="number" 
               placeholder="phone" 
-              className="py-2 px-4 border-gray-400 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
+              className="py-2 px-4 border-gray-300 border-[2px] rounded-lg text-gray-800 font-medium text-[22px]"
               onChange={(e) => setData({...data, number: e.target.value})}/>
             </div>
           </div>

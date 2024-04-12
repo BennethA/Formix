@@ -48,7 +48,7 @@ function App() {
             <div className="text-sm">
               <em>The business product is seriously a game change. It's got these awesome features that just make our daily grind so much easier, and it fits right into our workflow</em>
             </div>
-            <div className='flex mt-7 items-center flex-wrap'>
+            <div className='flex mt-8 mb-2 items-center flex-wrap'>
               <img src={Image} alt="" className='w-[60px] rounded-full mr-3'/>
               <p className='font-normal'>David Gorrex</p>
             </div>
@@ -60,7 +60,7 @@ function App() {
               steps.map((step, index) => <>
                 <FaCircle className={`transition-all border-[2.23px] rounded-xl p-[3px] text-2xl ${currentComponent > index  ? 'text-black border-black' : 'text-gray-300 border-gray-300 '}`} key={index}/>
                 {index < steps.length - 1 && (
-                  <hr className={` transition-all flex-1 h-1 m-2 ${currentComponent > index + 1 ? 'bg-black' : 'bg-gray-500'}`}></hr>
+                  <hr className={` transition-all flex-1 h-[0.5px] m-3 ${currentComponent > index + 1 ? 'bg-black' : 'bg-gray-500'}`}></hr>
                 )}
               </>)
             }
