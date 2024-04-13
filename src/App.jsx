@@ -3,7 +3,7 @@ import FirstPage from './FirstPage'
 import SecondPage from './SecondPage'
 import ThirdPage from './ThirdPage'
 import FourthPage from './FourthPage'
-import Image from '/Users/addob/OneDrive/Desktop/Formix/src/assets/image.jpg'
+import Image from './assets/image.jpg'
 import { FaCircle, FaStar } from 'react-icons/fa'
 
 function App() {
