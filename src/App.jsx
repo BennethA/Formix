@@ -3,9 +3,8 @@ import FirstPage from './FirstPage'
 import SecondPage from './SecondPage'
 import ThirdPage from './ThirdPage'
 import FourthPage from './FourthPage'
-import Image from './assets/image.jpg'
+import Image from '/Users/addob/OneDrive/Desktop/Formix/src/assets/image.jpg'
 import { FaCircle, FaStar } from 'react-icons/fa'
-import { FaCircleDot } from 'react-icons/fa6'
 
 function App() {
   const stars = Array(5).fill(null)
@@ -35,32 +34,34 @@ function App() {
   return (
     <>
       <div className="flex flex-col md:flex-row min-h-svh justify-center overflow-auto"> 
-        <div className="bg-[#080808fb] min-h-svh text-white p-[60px] md:w-[39%]" >
-          <div className="font-medium text-3xl mb-[55px] mt-10 font-serif">Formix.</div>
-          <div className="text-5xl font-bold mb-12 leading-[60px]">Let's formalize your operating agreement</div>
-          <div className="leading-7 mb-[110px] text-2xl font-semibold text-gray-300">
+        <div className="bg-[#000000fb] min-h-svh text-white p-[54px] md:w-[39%]" >
+          <div className="font-medium text-[27px] mb-[62px] mt-6 font-serif text-[#e6e6e6fb]">Formix.</div>
+          <div className="text-5xl font-bold mb-7 leading-[66px]">Let's formalize your operating agreement</div>
+          <div className="leading-7 mb-[98px] text-[22.5px] text-[#ebebeb]">
             The faster you finish the operating agreement process, the sooner customers can access your profile
           </div>
-          <div className="bg-gradient-to-b from-[#3a4644b0] to-[#222726b0] p-5 rounded-lg mt-10">
+          <div className="bg-gradient-to-b from-[#5e607759] to-[#5e607738] p-5 rounded-lg">
             <div className="mb-4 flex">
-              {stars.map((star, index) => <FaStar className='mr-3' key={index}/>)}
+              {stars.map((star, index) => <FaStar className='mr-3 text-[15px] text-[#ffffffc5]' key={index}/>)}
             </div>
-            <div className="text-sm">
-              <em>The business product is seriously a game change. It's got these awesome features that just make our daily grind so much easier, and it fits right into our workflow</em>
+            <div className="text-sm text-[#ffffffd8] leading-4">
+              <em>The business product is seriously a game changer. It's got these awesome features that just make our daily grind so much easier, and it fits right into our workflow.</em>
             </div>
-            <div className='flex mt-8 mb-2 items-center flex-wrap'>
-              <img src={Image} alt="" className='w-[60px] rounded-full mr-3'/>
-              <p className='font-normal'>David Gorrex</p>
+            <div className='flex mt-5 items-center flex-wrap'>
+              <img src={Image} alt="" className=' w-[55px] h-[55px] rounded-full mr-3'/>
+              <p className='text-[14px] font-semibold text-[#ffffff]'>David Gorrez</p>
             </div>
           </div>
         </div>
-        <div className='py-[60px] md:px-[40px] md:pr-[65px] px-[40px] md:w-[61%] min-h-svh'>
-          <div className='flex justify-between mt-10'>
+        <div className='py-[60px] md:pl-[36px] md:pr-[55px] px-[40px] md:w-[61%] min-h-svh'>
+          <div className='flex justify-between items-center mt-9'>
             {
               steps.map((step, index) => <>
-                <FaCircle className={`transition-all border-[2.23px] rounded-xl p-[3px] text-2xl ${currentComponent > index  ? 'text-black border-black' : 'text-gray-300 border-gray-300 '}`} key={index}/>
+                <FaCircle className={`transition-all border rounded-xl p-[3px] text-[22px] ${currentComponent > index  ? 'text-black border-black' : 'text-[#1f1f1f2a] border-[#1f1f1f2a]'}`} key={index}/>
                 {index < steps.length - 1 && (
-                  <hr className={` transition-all flex-1 h-[0.5px] m-3 ${currentComponent > index + 1 ? 'bg-black' : 'bg-gray-500'}`}></hr>
+                  <div className='flex flex-1 h-full items-center'>
+                    <hr className={` transition-all w-full h-[3px] mx-3 ${currentComponent > index + 1 ? 'bg-black' : 'bg-[#1f1f1f2a]'}`}></hr>
+                  </div>
                 )}
               </>)
             }
@@ -69,13 +70,13 @@ function App() {
           {currentComponent === 2 && <SecondPage/>}
           {currentComponent === 3 && <ThirdPage/>}
           {currentComponent === 4 && <FourthPage/>}
-          <div className="flex justify-between flex-col md:flex-row flex-wrap ">
+          <div className="flex justify-between flex-col md:flex-row flex-wrap px-2">
             {
               currentComponent > 1 
-              ? <button className=" font-semibold p-2 hover:bg-gray-500 hover:text-white text-xl font-sans text-gray-700 py-3 px-10 rounded-3xl" onClick={handlePrevStep}>Previous step</button>
+              ? <button className="py-[11px] text-[19px]  font-semibold font-sans px-8 hover:text-white hover:bg-gray-500 rounded-[30px] text-gray-700" onClick={handlePrevStep}>Previous step</button>
               : ''
             }
-            <button className="p-2 font-semibold hover:bg-gray-500 hover:text-white text-xl font-sans text-gray-700 py-3 px-10 rounded-3xl" onClick={handleNextStep}>Skip step</button>
+            <button className="py-[11px] text-[19px]  font-semibold font-sans px-8 hover:text-white hover:bg-gray-500 rounded-[30px] text-gray-700" onClick={handleNextStep}>Skip step</button>
             <button onClick={
               () => {
                 if(currentComponent === 1) {
@@ -84,7 +85,7 @@ function App() {
                 } else {
                   handleNextStep()
                 }
-              }} className="text-xl  font-semibold font-sans bg-black text-white py-3 px-10 hover:bg-gray-500 rounded-3xl">Next step</button>
+              }} className="py-[11px] text-[19px] font-semibold font-sans bg-black text-white px-8 hover:bg-gray-500 rounded-[30px]">Next step</button>
           </div>
         </div>
       </div>
