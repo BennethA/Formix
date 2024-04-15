@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FirstPage = ({data, setData, handleFirstComponent}) => {
+const AgreementFirstPage = ({data, setData, handleFirstComponent}) => {
   return (
     <div>
       <div className="font-semibold text-[35px] mt-14 mb-8">Let's get started!</div>
@@ -11,7 +11,7 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
               <div className="flex flex-col w-[48.5%]">
                 <label htmlFor="firstName" className="text-[#818181] mb-2 text-[17px] font-semibold">
                   First Name
-                </label> 
+                </label>
                 <input type="text" 
                 placeholder="firstname"
                 className="py-[10px] px-[20px] border-[#b9b9b9c2] border-[1.5px] rounded-lg text-[#4d3e3e] font-medium text-[20px]"
@@ -76,4 +76,4 @@ const FirstPage = ({data, setData, handleFirstComponent}) => {
   )
 }
 
-export default FirstPage
+export default AgreementFirstPage
