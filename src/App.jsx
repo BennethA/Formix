@@ -1,12 +1,11 @@
-import React from 'react'
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import LoginPage from './LoginPage';
-import RegisterPage from './RegisterPage';
-import AgreementPage from './AgreementPage';
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import AgreementPage from './pages/AgreementPage';
 
 const App = () => {
   return (

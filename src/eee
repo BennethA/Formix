@@ -1,0 +1,55 @@
+const [data, setData] = useState({
+  companyName: "",
+  companyEmail: "compMail@gmail.com",
+  companyLocation: "Accra, Ghana",
+  companyAddress: "01 Company Street, Suite 330",
+  companyNumber: "0123456789",
+  customerName: "",
+  customerEmail: "",
+  customerLocation: "",
+  customerAddress: "",
+  customerNumber: "",
+  products: [
+    {
+      productName: "",
+      productQuantity: "",
+      productPrice: "",
+      productTotal: "",
+    },
+    {
+      productName: "",
+      productQuantity: "",
+      productPrice: "",
+      productTotal: "",
+    },
+  ],
+  overall: "",
+});
+
+const handleNextAgreement = () => {
+  if (
+    data.companyName === "" ||
+    data.companyEmail === "" ||
+    data.companyLocation === "" ||
+    data.companyAddress === "" ||
+    data.companyNumber === "" ||
+    data.customerName === "" ||
+    data.customerEmail === "" ||
+    data.customerLocation === "" ||
+    data.customerAddress === "" ||
+    data.customerNumber === "" ||
+    !data.products.every(
+      (product) =>
+        product.productName === "" ||
+        product.productQuantity === "" ||
+        product.productPrice === "" ||
+        product.productTotal === ""
+    )
+  ) {
+    setFilled(true);
+    return;
+  } else {
+    setFilled(false);
+    agreementPage === 4 ? "" : setAgreementPage(agreementPage + 1);
+  }
+};
