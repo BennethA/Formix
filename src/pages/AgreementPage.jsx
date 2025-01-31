@@ -8,9 +8,10 @@ import FinalizePurchase from "../components/FinalizePurchase";
 
 function AgreementPage() {
   const steps = Array(4).fill(null);
+
   const [data, setData] = useState({
     companyName: "Company Name",
-    companyEmail: "compMail@gmail.com",
+    companyEmail: "company123@gmail.com",
     companyLocation: "Accra, Ghana",
     companyAddress: "01 Company Street, Suite 330",
     companyNumber: "0123456789",
@@ -23,44 +24,15 @@ function AgreementPage() {
     overall: "",
   });
 
-  const [filled, setFilled] = useState(false);
   const [agreementPage, setAgreementPage] = useState(1);
-
-  const handleNextAgreement = () => {
-    if (
-      !data.companyName ||
-      !data.companyEmail ||
-      !data.companyLocation === "" ||
-      !data.companyAddress === "" ||
-      !data.companyNumber === "" ||
-      (agreementPage === 2
-        ? !data.customerName === "" ||
-          !data.customerEmail === "" ||
-          !data.customerLocation === "" ||
-          !data.customerAddress === "" ||
-          !data.customerNumber === "" ||
-          !!data.products.every(
-            (product) =>
-              !product.name === "" ||
-              !product.quantity === "" ||
-              !product.price === "" ||
-              !product.total === ""
-          )
-        : "")
-    ) {
-      setFilled(true);
-      return;
-    } else {
-      setFilled(false);
-    }
-    agreementPage === 4 ? "" : setAgreementPage(agreementPage + 1);
-  };
 
   const handlePrevAgreement = () => {
     setAgreementPage(agreementPage - 1);
   };
 
-  const handleInformation = () => {
+  const handleInformation = (e) => {
+    e.preventDefault();
+    setAgreementPage(agreementPage + 1);
     console.log(data);
   };
 
@@ -114,31 +86,21 @@ function AgreementPage() {
             />
           )}
           {agreementPage === 3 && (
-            <ProductDetails data={data} setData={setData} />
+            <ProductDetails
+              data={data}
+              setData={setData}
+              handleInformation={handleInformation}
+            />
           )}
           {agreementPage === 4 && <FinalizePurchase data={data} />}
-          {filled ? <div className="text-red-800">Fill all inputs</div> : ""}
-          <div className="flex justify-between flex-col md:flex-row flex-wrap px-2 gap-2">
-            {agreementPage > 1 ? (
-              <button
-                className="py-[11px] text-[19px]  font-semibold font-sans px-8 hover:text-white hover:bg-gray-500 rounded-[30px] text-gray-700"
-                onClick={handlePrevAgreement}
-              >
-                Previous step
-              </button>
-            ) : (
-              ""
-            )}
+          {agreementPage > 1 && (
             <button
-              onClick={() => {
-                handleNextAgreement();
-                handleInformation();
-              }}
-              className="py-[11px] text-[19px] font-semibold font-sans bg-black text-white px-8 hover:bg-gray-500 rounded-[30px]"
+              className="py-[11px] text-[19px] font-semibold font-sans hover:text-white hover:bg-gray-500 rounded-[30px] text-gray-700 w-full transition-all duration-500"
+              onClick={handlePrevAgreement}
             >
-              Next step
+              Previous step
             </button>
-          </div>
+          )}
         </div>
       </div>
     </>
