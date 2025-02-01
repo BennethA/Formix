@@ -3,9 +3,9 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import AgreementPage from './pages/AgreementPage';
+import LoginPage from "./pages/Login-Page";
+import RegisterPage from "./pages/Register-Page";
+import AgreementPage from './pages/Agreement-Page';
 
 const App = () => {
   return (

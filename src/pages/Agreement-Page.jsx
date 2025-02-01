@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { FaCircle } from "react-icons/fa";
-import CompanyDetails from "../components/CompanyDetails";
-import CustomerDetails from "../components/CustomerDetails";
-import ProductDetails from "../components/ProductDetails";
-import FinalizePurchase from "../components/FinalizePurchase";
+import CompanyDetails from "../components/Company-Details";
+import CustomerDetails from "../components/Customer-Details";
+import ProductDetails from "../components/Product-Details";
+import FinalizePurchase from "../components/Finalize-Purchase";
 
 function AgreementPage() {
   const steps = Array(4).fill(null);

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 const FinalizePurchase = ({ data }) => {
   const calculateTotalCost = () => {
     const totalCost = data.products.reduce((acc, current) => {
@@ -8,12 +9,55 @@ const FinalizePurchase = ({ data }) => {
   };
 
   const printDocument = () => {
-    const printableArea = document.getElementById('printableArea').innerHTML;
-    const printWindow = window.open('', '', 'height=500,width=800');
+    const printableArea = document.getElementById("printableArea").innerHTML;
+    const printWindow = window.open("", "", "height=500,width=800");
+    const styles = `@media print {
+  * {
+    font-family: Arial, sans-serif;
+    color: #000;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead {
+    background-color: #eeeefcb9;
+    -webkit-print-color-adjust: exact;
+  }
+
+  th, td {
+    padding: 6pt;
+    text-align: center;
+    border: 1pt solid #eeeefcb9;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .total-amount {
+    display: flex;
+    margin-top: 12pt;
+    background-color: #eeeefcb9;
+    justify-content: space-between;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .total-amount p {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  .names {
+    text-decoration: underline dashed;
+  }
+}
+
+`;
     printWindow.document.write(`
       <html>
         <head>
           <title>Finalize Purchase</title>
+          <style>${styles}</style>
         </head>
         <body>
           ${printableArea}
@@ -36,25 +80,27 @@ const FinalizePurchase = ({ data }) => {
 
   return (
     <div className="mb-[20px]">
-      <div id="printableArea">
-        <h1 className="font-semibold text-[35px] mt-14 mb-8">Finalize Purchase</h1>
-        <div className="mb-[20px] flex flex-col gap-8">
+      <div>
+        <h1 className="font-semibold text-[35px] mt-14 mb-8">
+          Finalize Purchase
+        </h1>
+        <div id="printableArea" className="mb-[20px] flex flex-col gap-8">
           <div>
             <p className="text-xl flex items-center justify-between gap-7">
-              <span>From:</span>
-              <span className="border-b-black border-b border-dashed w-full text-end font-bold py-1">
+              <span>From: </span>
+              <span className="names border-b-black border-b border-dashed w-full text-end font-bold py-1">
                 {data.companyName}
               </span>
             </p>
             <p className="text-xl flex items-center justify-between gap-7">
-              <span>To:</span>
-              <span className="border-b-black border-b border-dashed w-full text-end font-bold py-1">
+              <span>To: </span>
+              <span className="names border-b-black border-b border-dashed w-full text-end font-bold py-1">
                 {data.customerName}
               </span>
             </p>
             <p className="text-xl flex items-center justify-between gap-7">
-              <span className="w-full">Company number</span>
-              <span className="w-full text-end py-1 text-gray-700">
+              <span className="w-full">Company number: </span>
+              <span className="names w-full text-end py-1 text-gray-700">
                 {data.companyNumber}
               </span>
             </p>
@@ -81,9 +127,9 @@ const FinalizePurchase = ({ data }) => {
               </tbody>
             ))}
           </table>
-          <div className="bg-[#eeeefcb9] flex justify-between pr-[6%] font-bold p-2 items-center">
+          <div className="total-amount bg-[#eeeefcb9] flex justify-between font-bold p-2 items-center">
             <p>Total Amount:</p>
-            <p className="text-2xl">
+            <p className="text-2xl pr-[6%]">
               {calculateTotalCost() && calculateTotalCost()}
             </p>
           </div>
