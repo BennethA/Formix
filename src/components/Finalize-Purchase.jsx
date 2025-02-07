@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
 
+import { useState } from "react";
+import FinalizeTable from "./Finalize-Table";
+import TotalAmount from "./Total-Amount.jsx";
+import { useEffect } from "react";
+
 const FinalizePurchase = ({ data }) => {
   const calculateTotalCost = () => {
-    const totalCost = data.products.reduce((acc, current) => {
-      return acc + parseFloat(current.total);
-    }, 0);
+    let totalCost = 0;
+    data.products.forEach((product) => {
+      totalCost += parseFloat(product.total);
+    });
     return totalCost;
   };
 
@@ -78,23 +84,37 @@ const FinalizePurchase = ({ data }) => {
   //   a.click();
   // };
 
+  const [currentDate, setCurrentDate] = useState("");
+
+  useEffect(() => {
+    const date = new Date();
+
+    setCurrentDate(date.toLocaleDateString());
+  }, []);
+
   return (
     <div className="mb-[20px]">
       <div>
-        <h1 className="font-semibold text-[35px] mt-14 mb-8">
+        <h1 className="font-semibold text-[35px] mt-14 font-serif mb-8">
           Finalize Purchase
         </h1>
         <div id="printableArea" className="mb-[20px] flex flex-col gap-8">
           <div>
+            <p className="flex items-center justify-between gap-7">
+              <span className="text-xl">Date: </span>
+              <span className=" w-full text-end font-bold py-1">
+                {currentDate}
+              </span>
+            </p>
             <p className="text-xl flex items-center justify-between gap-7">
               <span>From: </span>
-              <span className="names border-b-black border-b border-dashed w-full text-end font-bold py-1">
+              <span className="names border-b-black border-b border-dashed w-full text-end font-bold font-serif py-1">
                 {data.companyName}
               </span>
             </p>
             <p className="text-xl flex items-center justify-between gap-7">
               <span>To: </span>
-              <span className="names border-b-black border-b border-dashed w-full text-end font-bold py-1">
+              <span className="names border-b-black border-b border-dashed w-full text-end font-bold font-serif py-1">
                 {data.customerName}
               </span>
             </p>
@@ -105,34 +125,8 @@ const FinalizePurchase = ({ data }) => {
               </span>
             </p>
           </div>
-          <table className="w-full">
-            <thead className="bg-[#eeeefcb9]">
-              <tr className="border-b-2">
-                <th className="py-4 border-r">No.</th>
-                <th className="py-4">Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            {data.products.map((info, index) => (
-              <tbody className="font-semibold text-sm" key={index}>
-                <tr className="border-b-2">
-                  <td className="py-3 text-center border-r">{index + 1}</td>
-                  <td className="py-3 text-center">{info.name}</td>
-                  <td className="py-3 text-center">{info.quantity}</td>
-                  <td className="py-3 text-center">{info.price}</td>
-                  <td className="py-3 text-center">{info.total}</td>
-                </tr>
-              </tbody>
-            ))}
-          </table>
-          <div className="total-amount bg-[#eeeefcb9] flex justify-between font-bold p-2 items-center">
-            <p>Total Amount:</p>
-            <p className="text-2xl pr-[6%]">
-              {calculateTotalCost() && calculateTotalCost()}
-            </p>
-          </div>
+          <FinalizeTable products={data.products} />
+          <TotalAmount totalCost={calculateTotalCost()} />
         </div>
       </div>
       <button
